@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:timetable/pages/SplashScreen.dart';
 
 void main() {
@@ -17,7 +18,8 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Time Table',
-      theme: ThemeData(primarySwatch: Colors.blue),
+      theme: ThemeData(
+          primarySwatch: Colors.blue, textTheme: GoogleFonts.latoTextTheme()),
       home: SplashScreen(),
       debugShowCheckedModeBanner: false,
     );

@@ -14,7 +14,7 @@ class CustomButton extends StatelessWidget {
     required this.onPressed,
     this.text = "Submit",
     this.height = 50,
-    this.width = 150,
+    this.width = 135,
   });
 
   @override
@@ -22,19 +22,12 @@ class CustomButton extends StatelessWidget {
     return RawMaterialButton(
       constraints: BoxConstraints(minHeight: height, minWidth: width),
       fillColor: Styles.COLOR3,
-      splashColor: Colors.greenAccent,
+      splashColor: Styles.COLOR4,
       child: Padding(
         padding: EdgeInsets.all(10.0),
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
-            // Icon(
-            //   Icons.face,
-            //   color: Colors.amber,
-            // ),
-            // SizedBox(
-            //   width: 10.0,
-            // ),
             Text(
               text,
               maxLines: 1,

@@ -4,9 +4,14 @@ import 'package:timetable/custom/textfield.dart';
 import 'package:timetable/utils/logo.dart';
 import 'package:timetable/utils/styles.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
 
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,6 +24,7 @@ class LoginPage extends StatelessWidget {
               appname: false,
             ),
             CustomTextField(
+              textInputType: TextInputType.emailAddress,
               labelText: "Enter Email",
               hintText: "E-mail",
               initialValue: '',
@@ -30,6 +36,7 @@ class LoginPage extends StatelessWidget {
               height: 10,
             ),
             CustomTextField(
+              obscureText: true,
               labelText: "Enter Password",
               hintText: "Password",
               initialValue: '',

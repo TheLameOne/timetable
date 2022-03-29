@@ -17,6 +17,7 @@ class CustomTextField extends StatelessWidget {
   final double padding;
   final bool size;
   final bool onRegPage;
+  final bool obscureText;
 
   CustomTextField(
       {required this.labelText,
@@ -33,7 +34,8 @@ class CustomTextField extends StatelessWidget {
       this.isPrefixIcon = false,
       this.padding = 20,
       this.size = false,
-      this.onRegPage = false});
+      this.onRegPage = false,
+      this.obscureText = false});
 
   @override
   Widget build(BuildContext context) {
@@ -61,11 +63,12 @@ class CustomTextField extends StatelessWidget {
           padding:
               (isPrefixIcon) ? EdgeInsets.all(0) : EdgeInsets.only(left: 16),
           child: TextFormField(
+              obscureText: obscureText,
               onSaved: onSaved(),
               onChanged: onChanged(),
               keyboardType: textInputType,
               initialValue: initialValue,
-              style: TextStyle(fontSize: 30),
+              style: TextStyle(fontSize: 17),
               decoration: InputDecoration(
                 border: InputBorder.none,
                 hintText: hintText,
@@ -79,8 +82,7 @@ class CustomTextField extends StatelessWidget {
                     : null,
                 hintStyle: TextStyle(
                     fontSize: hintTextSize,
-                    fontFamily: 'Montserrat',
-                    color: Colors.black.withOpacity(0.5),
+                    color: Colors.black.withOpacity(0.3),
                     fontWeight: FontWeight.w300),
               )),
         ),
