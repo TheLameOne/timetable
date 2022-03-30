@@ -14,9 +14,10 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+        backgroundColor: Styles.COLOR1,
         //AppBar
         drawer: Drawer(
-          backgroundColor: Styles.COLOR2,
+          backgroundColor: Styles.COLOR3,
           child: Column(
             children: [
               Text("Text 1"),
@@ -26,6 +27,7 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
         appBar: AppBar(
+          shadowColor: Styles.COLOR1,
           title: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
