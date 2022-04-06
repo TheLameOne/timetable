@@ -13,6 +13,7 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPage extends State<RegisterPage> {
+  bool show = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -62,7 +63,18 @@ class _RegisterPage extends State<RegisterPage> {
               SizedBox(
                 height: 20,
               ),
-              CustomButton(text: "Send OTP", onPressed: () {}),
+              CustomButton(
+                  text: "Send OTP",
+                  onPressed: () {
+                    // showDialog(
+                    //     context: context,
+                    //     builder: (BuildContext context) => AlertDialog(
+                    //           title: Text("Harsh"),
+                    //         ));
+                    setState(() {
+                      show = true;
+                    });
+                  }),
               SizedBox(
                 height: 20,
               ),
@@ -72,35 +84,40 @@ class _RegisterPage extends State<RegisterPage> {
               //       "Send OTP",
               //       style: TextStyle(fontSize: 16, color: Styles.COLOR4),
               //     )),
-              CustomTextField(
-                labelText: "Enter OTP",
-                hintText: "OTP",
-                initialValue: '',
-                onChanged: () {},
-                onSaved: () {},
-                validator: () {},
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              CustomButton(
-                  text: "Register",
-                  onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => LoginPage()));
-                  }),
-              Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                Text("Didn't get the OTP?"),
-                TextButton(
-                  onPressed: () {},
-                  child: Text(
-                    "Resend OTP",
-                    style: TextStyle(
-                      color: Colors.lightBlueAccent,
-                    ),
-                  ),
-                )
-              ]),
+              (show)
+                  ? Column(children: [
+                      CustomTextField(
+                        labelText: "Enter OTP",
+                        hintText: "OTP",
+                        initialValue: '',
+                        onChanged: () {},
+                        onSaved: () {},
+                        validator: () {},
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      CustomButton(
+                          text: "Register",
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => LoginPage()));
+                          }),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text("Didn't get the OTP?"),
+                          TextButton(
+                              onPressed: () {},
+                              child: Text("Resend OTP",
+                                  style:
+                                      TextStyle(color: Colors.lightBlueAccent)))
+                        ],
+                      )
+                    ])
+                  : const SizedBox.shrink(),
             ],
           ),
         ),
